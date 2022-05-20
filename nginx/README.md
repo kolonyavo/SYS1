@@ -32,7 +32,7 @@ Nginx permet de servir des fichiers statiques et comme un proxy pour les requêt
 `vi my_site.conf`
 "www.conf"
 
-`server {
+server {
     listen 80;
 
     root /path/to/your/website;
@@ -50,7 +50,7 @@ Nginx permet de servir des fichiers statiques et comme un proxy pour les requêt
             include fastcgi_params;
             fastcgi_pass unix:/var/run/php5-fpm.sock;
     }
-}`
+}
 
 * Vérifiez la configuration avec : `nginx -t`
 * Il est l'heure de redémarer le serveur avec la commande : `/etc/init.d/nginx restart`
