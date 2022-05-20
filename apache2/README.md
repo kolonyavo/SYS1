@@ -20,8 +20,6 @@ Apache2 permet d'heberger des sites web.
 
 # Configuration
 Pour héberger votre site web dans Apache:
-* Entrez la commande `nano /etc/apache2/apache2.conf` et cherchez la ligne : "Directory "/var/www/" et ajouter après www/ le chemin vers lequel se situe votre site web;<br>
+* Entrez la commande `nano /etc/apache2/apache2.conf` et cherchez la ligne : "Directory "/var/www/" et le remplacer par le chemin vers lequel se situe votre site web;<br>
 
-Ou bien:<br>
-
-* Entrez dans `cd /var/www/` et créez un nouveau fichier .html qui sera votre site web et modifier dans `nano /etc/apache2/apache2.conf` "/var/www/" en "/var/www/nom_du_nouveau_fichier.html";
+* Il est l'heure de redémarer le serveur avec la commande : `/etc/init.d/apache2 restart`
