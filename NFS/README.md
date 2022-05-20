@@ -48,34 +48,7 @@ NFS peut être utilisé pour partager des répertoires de fichiers entre plusieu
 
 3) Vous devriez maintenant voir les deux partages NFS dans les sorties de
 
-`df-h`
-    [ root@client  ~]# df -h 
-    Filesystem Size Used Avail Use% Mounted on 
-    /dev/mapper/vg_server2-LogVol00 
-                        9.7G 1.7G 7.5G 18% / 
-    tmpfs 499M 0 499M 0% /dev/shm 
-    /dev/sda1 504M 39M 440M 9% /démarrage 
-    192.168.0.100:/home/client1 9.7G 1.7G 7.5G 19% /mnt/nfs/home/client1 
-    192.168.0.100:/var/www 
-                        9.7G 1.7G 7.5G 19% /var/www 
-    [ root@client  ~]#
-
-et
-
-`monter`
-    [ root@client ~]# monter 
-    /dev/mapper/vg_server2-LogVol00 sur / type ext4 (rw) 
-    proc sur /proc type proc (rw) 
-    sysfs sur /sys type sysfs (rw) 
-    devpts sur /dev/pts type devpts ( rw,gid=5,mode=620) 
-    tmpfs sur /dev/shm tapez tmpfs (rw) 
-    /dev/sda1 sur /boot tapez ext4 (rw) 
-    aucun sur /proc/sys/fs/binfmt_misc tapez binfmt_misc (rw) 
-    sunrpc sur /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw) 
-    192.168.0.100:/home/client1 sur /mnt/nfs/home/client1 type nfs (rw,vers=4,addr=192.168.0.100,clientaddr=192.168.0.101 ) 
-    192.168.0.100:/var/www sur /var/www tapez nfs (rw,vers=4,addr=192.168.0.100,clientaddr=192.168.0.101) 
-    [ root@client ~]#
-
+`df-h` et `monter`
 
 4) Sur le client, vous pouvez maintenant essayer de créer des fichiers de test sur les partages NFS :
 
