@@ -2,6 +2,7 @@
 Installation du serveur Nginx sous Linux (Debian 8)
 
 # Utilisation
+Nginx permet de servir des fichiers statiques et comme un proxy pour les requêtes dynamiques typiquement acheminées en utilisant une interface FastCGI vers un ou des serveurs applicatifs avec un mécanisme de répartition de charge.
 
 # Installation
 
@@ -13,5 +14,42 @@ Installation du serveur Nginx sous Linux (Debian 8)
     le texte en vert signifie que nginx a bien été installé;
 
 # Configuration
+* Effectuez la commande suivante `nano /etc/nginx/nginx.conf`.
+* Modifiez l'utilisateur par défaut vérifiez le nombre de processus de travail et désactivons le journal d'accès.
+    Les directives "user" et "worker_processes" sont proches du sommet: `user www-data;` `worker_processes 1;`
+* Désactivez le journal d'accès: naviguez vers le bas avec les touches fléchées jusqu'à ce que vous trouviez "access_log". Modifiez-le comme suit: `access_log off;`
+* Définir le "client_max_body_size" pour correspondre à certaines modifications apportées à PHP plus tard.Ajoutez juste en dessous de "access_log": `client_max_body_size 12m;`
 
-- Etape 5: effectuez la commande suivante `nano /etc/nginx/nginx.conf`
+* Pour enregistrer nos modifications et quitter vim, appuyez sur la séquence de touches suivante:
+
+`SHIFT :(colon)`
+`wq`
+`Press "Enter"`
+
+* Tapez les commandes suivantes: 
+`cd conf.d`
+`rm example_ssl.conf default.conf`
+`vi my_site.conf`
+"www.conf"
+
+`server {
+    listen 80;
+
+    root /path/to/your/website;
+    index index.php index.html index.htm;
+
+    server_name mydomainname.com www.mydomainname.com;
+
+    location / {
+            try_files $uri $uri/ /index.php;
+    }
+
+    location ~ \.php$ {
+            try_files $uri =404;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+            fastcgi_pass unix:/var/run/php5-fpm.sock;
+    }
+}`
+
+* Il est l'heure de redémarer le serveur avec la commande : `/etc/init.d/nginx restart`
