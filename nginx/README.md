@@ -1,6 +1,8 @@
 # Nginx
 Installation du serveur Nginx sous Linux (Debian 8)
 
+# Utilisation
+
 # Installation
 
 - Etape 1: connectez-vous à votre machine virtuelle en entrant votre login et votre mot de passe d'utilisateur; <br>
@@ -9,4 +11,7 @@ Installation du serveur Nginx sous Linux (Debian 8)
 - Etape 4: vérifiez si nginx a bien été installé avec la commande : `/etc/init.d/nginx status` <br> <br>
     <img src="status.png" alt="image" width="70%" height="70%"> <br>
     le texte en vert signifie que nginx a bien été installé;
+
+# Configuration
+
 - Etape 5: effectuez la commande suivante `nano /etc/nginx/nginx.conf`
