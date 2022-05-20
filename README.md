@@ -6,3 +6,6 @@ Ce ripository vous explique comment installer les serveurs suivants sur votre ma
 * vstpd
 * samba
 * dns
+
+# Prérequis
+Vous devez avoir au préalable une machine virtuelle (Linux)
