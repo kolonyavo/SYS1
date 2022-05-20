@@ -9,14 +9,14 @@ NFS peut être utilisé pour partager des répertoires de fichiers entre plusieu
     b) Installer du côté client: `apt-get install nfs-commun`
 
 ### Exporter des répertoires sur le serveur
-1) Créer*z le répertoire /home/client1
+1) Créez le répertoire /home/client1
     - Du coté serveur:
 
     mkdir /home/client1 
     chown personne:nogroup /home/client1 
     chmod 755 /home/client1
 
-2) Modifier /etc/exports où nous "exportons" nos partages NFS. Nous spécifions /home/client1 et /var/www comme partages NFS et disons à NFS d'accéder à /home/client1 en tant qu'utilisateur personne 
+2) Modifier /etc/exports où vous "exportez" vos partages NFS. Spécifiez /home/client1 et /var/www comme partages NFS et dites à NFS d'accéder à /home/client1 en tant qu'utilisateur personne 
 
 `homme 5 exporte`
 
@@ -41,14 +41,14 @@ NFS peut être utilisé pour partager des répertoires de fichiers entre plusieu
     mv /var/www /var/www_bak 
     mkdir -p /var/www
 
-2) Montons les comme suit :
+2) Montez les comme suit :
 
     monter 192.168.0.100:/home/client1 /mnt/nfs/home/client1 
     monter 192.168.0.100:/var/www /var/www
 
 3) Vous devriez maintenant voir les deux partages NFS dans les sorties de
 
-    df-h
+`df-h`
     [ root@client  ~]# df -h 
     Filesystem Size Used Avail Use% Mounted on 
     /dev/mapper/vg_server2-LogVol00 
@@ -62,7 +62,7 @@ NFS peut être utilisé pour partager des répertoires de fichiers entre plusieu
 
 et
 
-monter
+`monter`
     [ root@client ~]# monter 
     /dev/mapper/vg_server2-LogVol00 sur / type ext4 (rw) 
     proc sur /proc type proc (rw) 
