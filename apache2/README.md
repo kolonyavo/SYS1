@@ -12,9 +12,15 @@ Apache2 permet d'heberger des sites web.
  1) Vérifiez si apache2 a bien été installé avec la commande : `/etc/init.d/apache2 status` <br> <br>
     <img src="status.png" alt="image" width="70%" height="70%"> <br>
     le texte en vert signifie que apache2 a bien été installé;
- 2) Entrer l'addresse ip de votre machine virtuelle (tapez la commande `ip addr` dans la console) dans la barre de recherche de votre navigateur web.
+ 2) Trouvez votre addresse ip en tapant la commande `ip addr`,
+ 3) Entrer l'addresse ip de votre machine virtuelle dans la barre de recherche de votre navigateur web.
  <br>Vous devez voir la page par défaut d'Apache;
-    <img src="apache.png" alt="image" width="70%" height="70%">
+ <br>
+    <img src="apache.png" alt="image" width="50%" height="50%">
 
 # Configuration
-Pour héberger votre site en ligne
+Pour héberger votre site en ligne:
+* Entrez la commande `nano /etc/apache2/apache2.conf` et cherchez la ligne : "Directory /var/www/" et ajouter après www/ le chemin vers lequel se situe votre site web;
+<br>Ou bien:<br>
+
+* Entrez dans `cd /var/www/` et créez un nouveau fichier .html qui sera votre site web et modifier dans `nano /etc/apache2/apache2.conf` /var/www/ en /var/www/nom_du_fichier.html;
