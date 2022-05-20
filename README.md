@@ -8,4 +8,5 @@ Ce ripository vous explique comment installer les serveurs suivants sur votre ma
 * dns
 
 # Prérequis
-Vous devez avoir au préalable une machine virtuelle (Linux) opérationelle.
+Vous devez avoir au préalable une machine virtuelle (Linux) opérationelle.<br>
+Utilisez Vmware de préférence, comme hébergeur virtuel.
