@@ -5,7 +5,7 @@ Ce ripository vous explique comment installer les serveurs suivants sur votre ma
 * [nginx](https://github.com/kolonyavo/SYS1/tree/master/nginx)
 * VSFTPD
 * [samba](https://github.com/kolonyavo/SYS1/tree/master/samba)
-* NFS
+* [NFS](https://github.com/kolonyavo/SYS1/tree/master/NFS)
 
 # Prérequis
 Vous devez avoir au préalable une machine virtuelle (Linux) opérationelle.<br>
