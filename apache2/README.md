@@ -1,5 +1,5 @@
 # Apache 2
-Installation du serveur Apache2 sous Linux
+Installation du serveur Apache2 sous Linux (Debian 8)
 
 # Installation
 
