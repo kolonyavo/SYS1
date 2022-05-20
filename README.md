@@ -2,10 +2,10 @@
 Ce ripository vous explique comment installer les serveurs suivants sur votre machine virtuelle (Linux) :
 
 * [Apache2](https://github.com/kolonyavo/SYS1/tree/master/apache2)
-* nginx
-* vstpd
-* samba
-* dns
+* [nginx](https://github.com/kolonyavo/SYS1/tree/master/nginx)
+* VSFTPD
+* [samba](https://github.com/kolonyavo/SYS1/tree/master/samba)
+* NFS
 
 # Prérequis
 Vous devez avoir au préalable une machine virtuelle (Linux) opérationelle.<br>
