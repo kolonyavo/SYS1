@@ -31,15 +31,14 @@ NFS peut être utilisé pour partager des répertoires de fichiers entre plusieu
     - Du coté client:
 
 1) Créez les répertoires où vous voulez monter les partages NFS, par exemple :
-
-    mkdir -p /mnt/nfs/home/client1 
-    mkdir -p /var/www
+`mkdir -p /mnt/nfs/home/client1 ` 
+`mkdir -p /var/www`
 
 * Si le répertoire /var/www existe déjà sur votre serveur, arrêtez apache, renommez le répertoire et créez un nouveau répertoire vide comme point de montage
 
-    /etc/init.d/apache2 stop 
-    mv /var/www /var/www_bak 
-    mkdir -p /var/www
+    `/etc/init.d/apache2 stop `
+    `mv /var/www /var/www_bak `
+    `mkdir -p /var/www`
 
 2) Montez les comme suit :
 
