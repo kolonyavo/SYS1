@@ -15,42 +15,24 @@ Nginx permet de servir des fichiers statiques et comme un proxy pour les requêt
 
 # Configuration
 * Effectuez la commande suivante `nano /etc/nginx/nginx.conf`.
-* Modifiez l'utilisateur par défaut vérifiez le nombre de processus de travail et désactivons le journal d'accès.
-    Les directives "user" et "worker_processes" sont proches du sommet: `user www-data;` `worker_processes 1;`
-* Désactivez le journal d'accès: naviguez vers le bas avec les touches fléchées jusqu'à ce que vous trouviez "access_log". Modifiez-le comme suit: `access_log off;`
-* Définir le "client_max_body_size" pour correspondre à certaines modifications apportées à PHP plus tard.Ajoutez juste en dessous de "access_log": `client_max_body_size 12m;`
+* Créez un dossier dans le www du nginx `mkdir /var/www/nom du domaine du site` ce dossier va nous permettre de stocker les fichier de notre site qui est notre racine
+* Déterminez du proprieter du dossier du l'utilisateur de nginx `chown -R www-data:www-data /var/www/nom du site/`
+* Apppliquez les droits `chmod 755 /var/www/nom du site/`
+* Créez une page index.html pour la racine `nano /var/www/nom du site/index.html`
+* Créez du fichier de configuration (nano /etc/nginx/sites-available/appellation du site):
+exemple: server{
+        listen 80;
+        listen [::]:80;
 
-* Pour enregistrer nos modifications et quitter vim, appuyez sur la séquence de touches suivante:
+        root/var/www/nom du site;
 
-`SHIFT :(colon)`
-`wq`
-`Press "Enter"`
+        index index.html;
+        server_name nom du site www nom du site;
 
-* Tapez les commandes suivantes: 
-`cd conf.d`
-`rm example_ssl.conf default.conf`
-`vi my_site.conf`
-"www.conf"
-
-server {
-    listen 80;
-
-    root /path/to/your/website;
-    index index.php index.html index.htm;
-
-    server_name mydomainname.com www.mydomainname.com;
-
-    location / {
-            try_files $uri $uri/ /index.php;
+        location / {
+            try_files $uri $uri/ =404;
+        }
     }
-
-    location ~ \.php$ {
-            try_files $uri =404;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            include fastcgi_params;
-            fastcgi_pass unix:/var/run/php5-fpm.sock;
-    }
-}
-
-* Vérifiez la configuration avec : `nginx -t`
+* Mettez la configuration permanente `ln -s /etc/nginx/site-available/nom du site /etc/nginx/sites-enabled/nom du site`
+* Verifiez la configuration de notre nginx avec la commande `nginx -t`
 * Il est l'heure de redémarer le serveur avec la commande : `/etc/init.d/nginx restart`
