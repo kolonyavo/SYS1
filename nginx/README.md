@@ -52,4 +52,5 @@ Nginx permet de servir des fichiers statiques et comme un proxy pour les requêt
     }
 }`
 
+* Vérifiez la configuration avec : `nginx -t`
 * Il est l'heure de redémarer le serveur avec la commande : `/etc/init.d/nginx restart`
