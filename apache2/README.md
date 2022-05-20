@@ -17,3 +17,4 @@ Apache2 permet d'heberger des sites web.
     <img src="apache.png" alt="image" width="70%" height="70%">
 
 # Configuration
+Pour héberger votre site en ligne
